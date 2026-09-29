@@ -1,0 +1,14 @@
+# Database only, for local development without installing MongoDB:
+#   docker compose -f docker-compose.dev.yml up -d
+# Then run the backend (npm run dev) and frontend (npm run dev) on your machine.
+services:
+  mongo:
+    image: mongo:7
+    container_name: unifind-mongo-dev
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_dev_data:/data/db
+
+volumes:
+  mongo_dev_data:
